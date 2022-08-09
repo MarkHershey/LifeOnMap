@@ -36,6 +36,9 @@ const multiPolyline: LatLngExpression[][] = [
 const limeOptions = { color: "lime" };
 const fillBlueOptions = { fillColor: "blue" };
 
+// get API KEY from environment variable
+const API_KEY = process.env.STADIA_API_KEY || "";
+
 const Mapper = () => {
     return (
         <div className="border-4 border-cyan-500/30 m-3 rounded-lg overflow-clip">
@@ -47,7 +50,10 @@ const Mapper = () => {
             >
                 <TileLayer
                     attribution=""
-                    url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+                    url={
+                        "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=" +
+                        API_KEY
+                    }
                 />
 
                 {PathData.map((point, index) => {
