@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d16" for="edge" attr.name="geometry" attr.type="string" />
+  <key id="d15" for="edge" attr.name="length" attr.type="string" />
+  <key id="d14" for="edge" attr.name="reversed" attr.type="string" />
+  <key id="d13" for="edge" attr.name="maxspeed" attr.type="string" />
+  <key id="d12" for="edge" attr.name="highway" attr.type="string" />
+  <key id="d11" for="edge" attr.name="name" attr.type="string" />
+  <key id="d10" for="edge" attr.name="lanes" attr.type="string" />
+  <key id="d9" for="edge" attr.name="oneway" attr.type="string" />
+  <key id="d8" for="edge" attr.name="osmid" attr.type="string" />
+  <key id="d7" for="node" attr.name="street_count" attr.type="string" />
+  <key id="d6" for="node" attr.name="highway" attr.type="string" />
+  <key id="d5" for="node" attr.name="x" attr.type="string" />
+  <key id="d4" for="node" attr.name="y" attr.type="string" />
+  <key id="d3" for="graph" attr.name="simplified" attr.type="string" />
+  <key id="d2" for="graph" attr.name="crs" attr.type="string" />
+  <key id="d1" for="graph" attr.name="created_with" attr.type="string" />
+  <key id="d0" for="graph" attr.name="created_date" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="239826289">
+      <data key="d4">1.3169065</data>
+      <data key="d5">103.8922266</data>
+      <data key="d6">traffic_signals</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="626311920">
+      <data key="d4">1.3169357</data>
+      <data key="d5">103.8923629</data>
+      <data key="d6">traffic_signals</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="1294427461">
+      <data key="d4">1.3173167</data>
+      <data key="d5">103.8922766</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="1995029565">
+      <data key="d4">1.3181625</data>
+      <data key="d5">103.8920781</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="4600173929">
+      <data key="d4">1.3171757</data>
+      <data key="d5">103.8921721</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="6194505667">
+      <data key="d4">1.3167682</data>
+      <data key="d5">103.8922508</data>
+      <data key="d6">crossing</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="8163155262">
+      <data key="d4">1.3167588</data>
+      <data key="d5">103.8921743</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="8163302160">
+      <data key="d4">1.3169472</data>
+      <data key="d5">103.8924634</data>
+      <data key="d6">crossing</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="8163302182">
+      <data key="d4">1.316781</data>
+      <data key="d5">103.892515</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="8163318023">
+      <data key="d4">1.3169538</data>
+      <data key="d5">103.892217</data>
+      <data key="d6">crossing</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="8163318024">
+      <data key="d4">1.3169757</data>
+      <data key="d5">103.8923538</data>
+      <data key="d6">crossing</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="8163318025">
+      <data key="d4">1.3169921</data>
+      <data key="d5">103.8924547</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="8163318026">
+      <data key="d4">1.3168071</data>
+      <data key="d5">103.8924842</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="8163318027">
+      <data key="d4">1.3167934</data>
+      <data key="d5">103.8923912</data>
+      <data key="d6">crossing</data>
+      <data key="d7">4</data>
+    </node>
+    <edge source="239826289" target="626311920" id="0">
+      <data key="d8">46341954</data>
+      <data key="d9">True</data>
+      <data key="d10">4</data>
+      <data key="d11">Sims Avenue</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">15.496</data>
+    </edge>
+    <edge source="239826289" target="8163318023" id="0">
+      <data key="d8">585646214</data>
+      <data key="d9">True</data>
+      <data key="d10">4</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">5.367</data>
+    </edge>
+    <edge source="626311920" target="8163302160" id="0">
+      <data key="d8">464288947</data>
+      <data key="d9">True</data>
+      <data key="d10">4</data>
+      <data key="d11">Sims Avenue</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">11.245</data>
+    </edge>
+    <edge source="626311920" target="8163318027" id="0">
+      <data key="d8">747788808</data>
+      <data key="d9">True</data>
+      <data key="d10">3</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">16.133</data>
+    </edge>
+    <edge source="1294427461" target="8163318024" id="0">
+      <data key="d8">464288946</data>
+      <data key="d9">True</data>
+      <data key="d10">3</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">38.877</data>
+    </edge>
+    <edge source="1995029565" target="1294427461" id="0">
+      <data key="d8">[661670601, 655141938]</data>
+      <data key="d9">True</data>
+      <data key="d10">4</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">96.62899999999999</data>
+      <data key="d16">LINESTRING (103.8920781 1.3181625, 103.8921409 1.3178516, 103.8922766 1.3173167)</data>
+    </edge>
+    <edge source="6194505667" target="239826289" id="0">
+      <data key="d8">661670906</data>
+      <data key="d9">True</data>
+      <data key="d10">5</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">15.612</data>
+    </edge>
+    <edge source="6194505667" target="8163318027" id="0">
+      <data key="d8">877386479</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">15.857</data>
+    </edge>
+    <edge source="6194505667" target="8163155262" id="0">
+      <data key="d8">877386479</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">8.568</data>
+    </edge>
+    <edge source="8163155262" target="6194505667" id="0">
+      <data key="d8">877386479</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">8.568</data>
+    </edge>
+    <edge source="8163302160" target="8163318025" id="0">
+      <data key="d8">877386477</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">5.085</data>
+    </edge>
+    <edge source="8163302160" target="8163318026" id="0">
+      <data key="d8">877386477</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">15.749</data>
+    </edge>
+    <edge source="8163302182" target="8163318026" id="0">
+      <data key="d8">877386467</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">4.488</data>
+    </edge>
+    <edge source="8163318023" target="4600173929" id="0">
+      <data key="d8">585646214</data>
+      <data key="d9">True</data>
+      <data key="d10">4</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">25.174</data>
+    </edge>
+    <edge source="8163318023" target="8163318024" id="0">
+      <data key="d8">877386476</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">15.401</data>
+    </edge>
+    <edge source="8163318024" target="626311920" id="0">
+      <data key="d8">464288946</data>
+      <data key="d9">True</data>
+      <data key="d10">3</data>
+      <data key="d11">Paya Lebar Road</data>
+      <data key="d12">primary</data>
+      <data key="d13">60</data>
+      <data key="d14">False</data>
+      <data key="d15">4.561</data>
+    </edge>
+    <edge source="8163318024" target="8163318023" id="0">
+      <data key="d8">877386476</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">15.401</data>
+    </edge>
+    <edge source="8163318024" target="8163318025" id="0">
+      <data key="d8">877386476</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">11.364</data>
+    </edge>
+    <edge source="8163318025" target="8163318024" id="0">
+      <data key="d8">877386476</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">11.364</data>
+    </edge>
+    <edge source="8163318025" target="8163302160" id="0">
+      <data key="d8">877386477</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">5.085</data>
+    </edge>
+    <edge source="8163318026" target="8163302182" id="0">
+      <data key="d8">877386467</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">4.488</data>
+    </edge>
+    <edge source="8163318026" target="8163302160" id="0">
+      <data key="d8">877386477</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">15.749</data>
+    </edge>
+    <edge source="8163318026" target="8163318027" id="0">
+      <data key="d8">877386479</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">10.45</data>
+    </edge>
+    <edge source="8163318027" target="8163318026" id="0">
+      <data key="d8">877386479</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">False</data>
+      <data key="d15">10.45</data>
+    </edge>
+    <edge source="8163318027" target="6194505667" id="0">
+      <data key="d8">877386479</data>
+      <data key="d12">footway</data>
+      <data key="d9">False</data>
+      <data key="d14">True</data>
+      <data key="d15">15.857</data>
+    </edge>
+    <data key="d0">2022-08-10 01:21:07</data>
+    <data key="d1">OSMnx 1.2.2</data>
+    <data key="d2">epsg:4326</data>
+    <data key="d3">True</data>
+  </graph>
+</graphml>
