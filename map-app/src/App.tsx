@@ -35,16 +35,22 @@ const limeOptions = { color: "lime" };
 
 function App() {
     return (
-        <div className="m-3 border-5 border-blue-800 w-10 h-10 bg-slate-600">
-            {/* <MapContainer center={center} zoom={13} scrollWheelZoom={false}>
+        <div className="w-full h-full">
+            <MapContainer
+                className=" border border-red-500 w-full h-full"
+                style={{ height: "500px", width: "500px" }}
+                center={center}
+                zoom={13}
+                scrollWheelZoom={true}
+            >
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="OpenStreetMap"
+                    url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
                 />
 
                 <Polyline pathOptions={limeOptions} positions={polyline} />
                 <Polyline pathOptions={limeOptions} positions={multiPolyline} />
-            </MapContainer> */}
+            </MapContainer>
         </div>
     );
 }
