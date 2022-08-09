@@ -4,13 +4,14 @@ import {
     MapContainer,
     TileLayer,
     // useMap,
-    // Circle,
-    // CircleMarker,
+    Circle,
+    CircleMarker,
     Polyline,
     // Polygon,
     // Rectangle,
-    // Popup,
+    Popup,
 } from "react-leaflet";
+import { PathData } from "../static/PathData";
 
 const center: LatLngExpression = [51.505, -0.09];
 
@@ -33,13 +34,14 @@ const multiPolyline: LatLngExpression[][] = [
     ],
 ];
 const limeOptions = { color: "lime" };
+const fillBlueOptions = { fillColor: "blue" };
 
 const Mapper = () => {
     return (
         <div className="border-4 border-cyan-500/30 m-3 rounded-lg overflow-clip">
             <MapContainer
                 className="w-full h-full"
-                center={center}
+                center={PathData[0]}
                 zoom={13}
                 scrollWheelZoom={true}
             >
@@ -48,8 +50,23 @@ const Mapper = () => {
                     url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
                 />
 
-                <Polyline pathOptions={limeOptions} positions={polyline} />
-                <Polyline pathOptions={limeOptions} positions={multiPolyline} />
+                {PathData.map((point, index) => {
+                    // random radius
+                    const radius = Math.random() * (20 - 1) + 1;
+                    return (
+                        <CircleMarker
+                            key={index}
+                            center={point}
+                            pathOptions={fillBlueOptions}
+                            radius={radius}
+                        >
+                            <Popup>Popup in CircleMarker</Popup>
+                        </CircleMarker>
+                    );
+                })}
+
+                {/* <Polyline pathOptions={limeOptions} positions={PathData} />
+                <Polyline pathOptions={limeOptions} positions={multiPolyline} /> */}
             </MapContainer>
         </div>
     );
