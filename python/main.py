@@ -101,13 +101,14 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    ...
+    # main()
     # main(place="Pulau Ubin, Singapore", northernHemisphere=True)
     # main(place="Bedok, Singapore", northernHemisphere=True)
-    main(place="Punggol, Singapore", northernHemisphere=True)
-    main(place="Paya Lebar, Singapore", northernHemisphere=True)
-    main(place="Jurong East, Singapore", northernHemisphere=True)
-    main(place="Zhonghe District, New Taipei City, Taiwan", northernHemisphere=True)
-    main(place="Luzhou District, New Taipei City, Taiwan", northernHemisphere=True)
-    main(place="Mong Kok, Hong Kong", northernHemisphere=True)
-    main(place="Causeway Bay, Hong Kong", northernHemisphere=True)
+    # main(place="Punggol, Singapore", northernHemisphere=True)
+    # main(place="Paya Lebar, Singapore", northernHemisphere=True)
+    # main(place="Jurong East, Singapore", northernHemisphere=True)
+    # main(place="Zhonghe District, New Taipei City, Taiwan", northernHemisphere=True)
+    # main(place="Luzhou District, New Taipei City, Taiwan", northernHemisphere=True)
+    # main(place="Mong Kok, Hong Kong", northernHemisphere=True)
+    # main(place="Causeway Bay, Hong Kong", northernHemisphere=True)

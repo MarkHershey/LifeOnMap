@@ -82,3 +82,48 @@ def utmToLatLng(zone, easting, northing, northernHemisphere=True):
     longitude = ((zone > 0) and (6 * zone - 183.0) or 3.0) - _a3
 
     return (latitude, longitude)
+
+
+def decode_polyline(polyline_str):
+    """Decodes a polyline string into a list of lat/lon pairs
+
+    Ref: https://stackoverflow.com/a/33557535
+    """
+    index, lat, lng = 0, 0, 0
+    coordinates = []
+    changes = {"latitude": 0, "longitude": 0}
+
+    # Coordinates have variable length when encoded, so just keep
+    # track of whether we've hit the end of the string. In each
+    # while loop iteration, a single coordinate is decoded.
+    while index < len(polyline_str):
+        # Gather lat/lon changes, store them in a dictionary to apply them later
+        for unit in ["latitude", "longitude"]:
+            shift, result = 0, 0
+
+            while True:
+                byte = ord(polyline_str[index]) - 63
+                index += 1
+                result |= (byte & 0x1F) << shift
+                shift += 5
+                if not byte >= 0x20:
+                    break
+
+            if result & 1:
+                changes[unit] = ~(result >> 1)
+            else:
+                changes[unit] = result >> 1
+
+        lat += changes["latitude"]
+        lng += changes["longitude"]
+
+        coordinates.append((lat / 100000.0, lng / 100000.0))
+
+    return coordinates
+
+
+if __name__ == "__main__":
+    coords = decode_polyline(
+        "whdG_shyRD`@n@MzBk@dCk@l@lCHt@nAWFFR`AF^JB\\JTLVb@Nd@T?f@?Pr@Af@GRETC\\DX`@bABP@X@^?dAGn@?NDPBDm@JM@{@@"
+    )
+    print(coords)

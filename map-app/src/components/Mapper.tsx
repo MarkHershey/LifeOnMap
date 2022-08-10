@@ -1,5 +1,5 @@
 import React from "react";
-import { LatLngExpression } from "leaflet";
+import { LatLngExpression, PathOptions } from "leaflet";
 import {
     MapContainer,
     TileLayer,
@@ -12,28 +12,14 @@ import {
     Popup,
 } from "react-leaflet";
 import { PathData } from "../static/PathData";
+import { multiPolyline0 } from "../static/routes/RoutesPulau";
 
-const center: LatLngExpression = [51.505, -0.09];
-
-const polyline: LatLngExpression[] = [
-    [51.505, -0.09],
-    [51.51, -0.1],
-    [51.51, -0.12],
-];
-
-const multiPolyline: LatLngExpression[][] = [
-    [
-        [51.5, -0.1],
-        [51.5, -0.12],
-        [51.52, -0.12],
-    ],
-    [
-        [51.5, -0.05],
-        [51.5, -0.06],
-        [51.52, -0.06],
-    ],
-];
 const limeOptions = { color: "lime" };
+const polyLineOptions: PathOptions = {
+    color: "#54a9ff",
+    opacity: 0.15,
+    weight: 2,
+};
 const fillBlueOptions = { fillColor: "blue" };
 
 // get API KEY from environment variable
@@ -44,7 +30,7 @@ const Mapper = () => {
         <div className="border-4 border-cyan-500/30 m-3 rounded-lg overflow-clip">
             <MapContainer
                 className="w-full h-full"
-                center={PathData[0]}
+                center={multiPolyline0[0][0]}
                 zoom={13}
                 scrollWheelZoom={true}
             >
@@ -56,7 +42,7 @@ const Mapper = () => {
                     }
                 />
 
-                {PathData.map((point, index) => {
+                {/* {PathData.map((point, index) => {
                     // random radius
                     const radius = Math.random() * (20 - 1) + 1;
                     return (
@@ -69,10 +55,23 @@ const Mapper = () => {
                             <Popup>Popup in CircleMarker</Popup>
                         </CircleMarker>
                     );
-                })}
+                })} */}
 
-                {/* <Polyline pathOptions={limeOptions} positions={PathData} />
-                <Polyline pathOptions={limeOptions} positions={multiPolyline} /> */}
+                {/* <Polyline pathOptions={limeOptions} positions={PathData} /> */}
+                {/* <Polyline
+                    pathOptions={limeOptions}
+                    positions={multiPolyline0}
+                /> */}
+
+                {multiPolyline0.map((ployLine, index) => {
+                    return (
+                        <Polyline
+                            key={index}
+                            pathOptions={polyLineOptions}
+                            positions={ployLine}
+                        />
+                    );
+                })}
             </MapContainer>
         </div>
     );
