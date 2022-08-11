@@ -26,13 +26,13 @@ const API_KEY = process.env.STADIA_API_KEY || "";
 
 const Mapper = () => {
     return (
-        <div className="border-4 border-cyan-500/30 m-3 rounded-full overflow-clip">
+        <div className="m-3 rounded-full overflow-clip ring-4 ring-cyan-500/20 hover:ring-cyan-500">
             <MapContainer
                 className="w-full h-full"
                 center={multiPolyline0[0][0]}
                 zoom={13}
                 scrollWheelZoom={false}
-                zoomControl={false}
+                zoomControl={true}
                 dragging={true}
                 inertia={true}
             >
