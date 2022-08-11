@@ -1,10 +1,10 @@
 import React from "react";
-import { LatLngExpression, PathOptions } from "leaflet";
+import { PathOptions } from "leaflet";
 import {
     MapContainer,
     TileLayer,
     // useMap,
-    Circle,
+    // Circle,
     CircleMarker,
     Polyline,
     // Polygon,
@@ -14,7 +14,6 @@ import {
 import { PathData } from "../static/PathData";
 import { multiPolyline0 } from "../static/routes/RoutesPulau";
 
-const limeOptions = { color: "lime" };
 const polyLineOptions: PathOptions = {
     color: "#54a9ff",
     opacity: 0.15,
@@ -27,12 +26,15 @@ const API_KEY = process.env.STADIA_API_KEY || "";
 
 const Mapper = () => {
     return (
-        <div className="border-4 border-cyan-500/30 m-3 rounded-lg overflow-clip">
+        <div className="border-4 border-cyan-500/30 m-3 rounded-full overflow-clip">
             <MapContainer
                 className="w-full h-full"
                 center={multiPolyline0[0][0]}
                 zoom={13}
-                scrollWheelZoom={true}
+                scrollWheelZoom={false}
+                zoomControl={false}
+                dragging={true}
+                inertia={true}
             >
                 <TileLayer
                     attribution=""
@@ -42,7 +44,7 @@ const Mapper = () => {
                     }
                 />
 
-                {/* {PathData.map((point, index) => {
+                {PathData.map((point, index) => {
                     // random radius
                     const radius = Math.random() * (20 - 1) + 1;
                     return (
@@ -55,7 +57,7 @@ const Mapper = () => {
                             <Popup>Popup in CircleMarker</Popup>
                         </CircleMarker>
                     );
-                })} */}
+                })}
 
                 {/* <Polyline pathOptions={limeOptions} positions={PathData} /> */}
                 {/* <Polyline
