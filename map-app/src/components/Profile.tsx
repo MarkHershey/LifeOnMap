@@ -26,7 +26,7 @@ const Profile = (props: Props) => {
 
     return (
         <div>
-            <div className="m-5 flex items-center space-x-4">
+            <div className="m-6 flex items-center space-x-4">
                 <img
                     className="p-1 w-20 h-20 rounded-full ring-2 ring-gray-500 hover:ring-blue-500 hover:animate-pulse hover:scale-105"
                     src={avatar}

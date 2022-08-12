@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 const Header = () => {
     return (
-        <nav className="mt-5 px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <nav className="mt-5 px-2 bg-gray-900 border-gray-700">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="/LifeOnMap" className="flex items-center">
                     <img

@@ -63,7 +63,10 @@ const Mapper = () => {
     points = points.slice(0, points.length / 8);
 
     return (
-        <div className="m-3 rounded-full overflow-clip ring-4 ring-cyan-500/20 hover:ring-cyan-500">
+        <div
+            className="m-3 rounded-full overflow-clip ring-4 ring-cyan-500/20 hover:ring-cyan-500"
+            style={{ minHeight: 500 }}
+        >
             <MapContainer
                 className="w-full h-full"
                 center={[1.3599654500769531, 103.81338414844132]}

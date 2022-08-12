@@ -4,7 +4,7 @@ import Mapper from "./components/Mapper";
 import Profile from "./components/Profile";
 import { AVATARS } from "./assets/avatars";
 
-const NUM_PROFILES = 6;
+const NUM_PROFILES = 9;
 
 function shuffle(array: any[]): any[] {
     let currentIndex = array.length;
@@ -28,7 +28,7 @@ function App() {
     const avatars = shuffle(AVATARS).slice(0, NUM_PROFILES);
 
     return (
-        <div className="absolute w-full h-full bg-slate-900 select-none">
+        <div className=" bg-slate-900 select-none">
             <Header />
             {showMap ? (
                 <>
@@ -51,7 +51,7 @@ function App() {
                     </div>
                 </>
             ) : (
-                <div className="container mt-6 flex flex-col flex-wrap justify-between mx-auto">
+                <div className="container mt-6 flex flex-wrap justify-between mx-auto">
                     {avatars.map((avatar, index) => (
                         <Profile
                             key={index}
