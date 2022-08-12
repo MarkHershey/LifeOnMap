@@ -77,7 +77,7 @@ def query_route(
     else:
         LOG.error(f"[ERROR] HTTP Status: {response.status_code}")
 
-    return None
+    return (None, None)
 
 
 def main():
