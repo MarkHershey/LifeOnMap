@@ -116,4 +116,10 @@ if __name__ == "__main__":
     # main(place="Singapore", northernHemisphere=True)
     # main(place="Tokyo", northernHemisphere=True)
     # main(place="Shanghai", northernHemisphere=True)
-    main(place="Perth, Australia", northernHemisphere=False)
+    # main(place="Perth, Australia", northernHemisphere=False)
+    main(
+        place="Singapore",
+        num_points=128,
+        num_samples=6,
+        outpath=Path(__file__).parent / "data" / f"SG.json",
+    )

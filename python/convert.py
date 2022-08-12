@@ -6,10 +6,10 @@ project_root = Path(__file__).resolve().parent.parent
 
 
 def points():
-    OBJ_NAME = "PathData"
+    OBJ_NAME = "PointsData"
     OUTFILE = f"{OBJ_NAME}.ts"
 
-    with open("data/Bedok, Singapore.json") as f:
+    with open("data/Singapore.json") as f:
         data = json.load(f)
 
     for idx, sample in data.items():
@@ -34,19 +34,19 @@ def points():
 
 def routes():
     data_dir = project_root / "python/data"
-    routes_dir: Path = project_root / "map-app/src/static/routes"
+    routes_dir: Path = project_root / "map-app/src/assets/routes"
     routes_dir.mkdir(exist_ok=True)
-
-    long_string = """import { LatLngExpression } from "leaflet";\n\n"""
 
     file_counter = 0
 
     for filename in os.listdir(data_dir):
+        long_string = """import { LatLngExpression } from "leaflet";\n\n"""
+
         if not filename.startswith("routes_"):
             continue
 
         file_counter += 1
-        area = filename.split()[0]
+        area = filename[:-5].split()[0]
         area = area[7:]
         area = area.strip(",")
 
@@ -60,9 +60,8 @@ def routes():
             OBJ_NAME = f"multiPolyline{idx}"
             coords = sample["coordinates"]
             obj_str = json.dumps(coords)
-            long_string = (
-                long_string
-                + f"export const {OBJ_NAME}: LatLngExpression[][] = {obj_str};\n\n"
+            long_string += (
+                f"export const {OBJ_NAME}: LatLngExpression[][] = {obj_str};\n\n"
             )
 
         with open(outfile, "w") as f:
@@ -71,4 +70,6 @@ def routes():
 
 
 if __name__ == "__main__":
-    routes()
+    # routes()
+    # points()
+    ...

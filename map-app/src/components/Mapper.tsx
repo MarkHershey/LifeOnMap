@@ -1,36 +1,73 @@
 import React from "react";
-import { PathOptions } from "leaflet";
 import {
     MapContainer,
     TileLayer,
-    // useMap,
-    // Circle,
     CircleMarker,
     Polyline,
-    // Polygon,
-    // Rectangle,
-    Popup,
+    // Popup,
 } from "react-leaflet";
-import { PathData } from "../static/PathData";
-import { multiPolyline0 } from "../static/routes/RoutesPulau";
 
-const polyLineOptions: PathOptions = {
-    color: "#54a9ff",
-    opacity: 0.15,
-    weight: 2,
-};
-const fillBlueOptions = { fillColor: "blue" };
+import {
+    multiPolyline0,
+    multiPolyline1,
+    multiPolyline2,
+    multiPolyline3,
+    multiPolyline4,
+    multiPolyline5,
+} from "../assets/routes/RoutesSG";
+import { PointsSG } from "../assets/points/PointsSG";
+
+const multiPolyLines = [
+    multiPolyline0,
+    multiPolyline1,
+    multiPolyline2,
+    multiPolyline3,
+    multiPolyline4,
+    multiPolyline5,
+];
+
+function shuffle(array: any[]): any[] {
+    let currentIndex = array.length;
+    let randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex],
+            array[currentIndex],
+        ];
+    }
+    return array;
+}
 
 // get API KEY from environment variable
 const API_KEY = process.env.STADIA_API_KEY || "";
 
 const Mapper = () => {
+    let commutePolyLines =
+        multiPolyLines[Math.floor(Math.random() * multiPolyLines.length)];
+    commutePolyLines = shuffle(commutePolyLines);
+    commutePolyLines = commutePolyLines.slice(0, commutePolyLines.length / 2);
+
+    let walkingPolyLines =
+        multiPolyLines[Math.floor(Math.random() * multiPolyLines.length)];
+    walkingPolyLines = shuffle(walkingPolyLines);
+    walkingPolyLines = walkingPolyLines.slice(0, walkingPolyLines.length / 3);
+
+    let drivingPolyLines =
+        multiPolyLines[Math.floor(Math.random() * multiPolyLines.length)];
+    drivingPolyLines = shuffle(drivingPolyLines);
+    drivingPolyLines = drivingPolyLines.slice(0, drivingPolyLines.length / 4);
+
+    let points = shuffle(PointsSG);
+    points = points.slice(0, points.length / 8);
+
     return (
         <div className="m-3 rounded-full overflow-clip ring-4 ring-cyan-500/20 hover:ring-cyan-500">
             <MapContainer
                 className="w-full h-full"
-                center={multiPolyline0[0][0]}
-                zoom={13}
+                center={[1.3599654500769531, 103.81338414844132]}
+                zoom={12}
                 scrollWheelZoom={true}
                 zoomControl={false}
                 dragging={true}
@@ -44,32 +81,60 @@ const Mapper = () => {
                     }
                 />
 
-                {PathData.map((point, index) => {
+                {points.map((point, index) => {
                     // random radius
                     const radius = Math.random() * (20 - 1) + 1;
                     return (
                         <CircleMarker
                             key={index}
                             center={point}
-                            pathOptions={fillBlueOptions}
+                            pathOptions={{
+                                fillColor: "blue",
+                            }}
                             radius={radius}
                         >
-                            <Popup>Popup in CircleMarker</Popup>
+                            {/* <Popup>Popup in CircleMarker</Popup> */}
                         </CircleMarker>
                     );
                 })}
 
-                {/* <Polyline pathOptions={limeOptions} positions={PathData} /> */}
-                {/* <Polyline
-                    pathOptions={limeOptions}
-                    positions={multiPolyline0}
-                /> */}
-
-                {multiPolyline0.map((ployLine, index) => {
+                {commutePolyLines.map((ployLine, index) => {
                     return (
                         <Polyline
                             key={index}
-                            pathOptions={polyLineOptions}
+                            pathOptions={{
+                                color: "#3a86ff", // blue
+                                opacity: 0.3,
+                                weight: 3,
+                            }}
+                            positions={ployLine}
+                        />
+                    );
+                })}
+
+                {walkingPolyLines.map((ployLine, index) => {
+                    return (
+                        <Polyline
+                            key={index}
+                            pathOptions={{
+                                color: "#fb5607", // orange
+                                opacity: 0.3,
+                                weight: 3,
+                            }}
+                            positions={ployLine}
+                        />
+                    );
+                })}
+
+                {drivingPolyLines.map((ployLine, index) => {
+                    return (
+                        <Polyline
+                            key={index}
+                            pathOptions={{
+                                color: "#8338ec", // purple
+                                opacity: 0.3,
+                                weight: 3,
+                            }}
                             positions={ployLine}
                         />
                     );
