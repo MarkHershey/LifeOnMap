@@ -44,7 +44,7 @@ function App() {
                     </div>
 
                     <div
-                        className="px-32 grid grid-cols-1 gap-1"
+                        className="px-0 sm:px-0 md:px-0 lg:px-32 xl:px-32 grid grid-cols-1 gap-1"
                         style={{ height: "calc(100% - 250px)" }}
                     >
                         <Mapper />
