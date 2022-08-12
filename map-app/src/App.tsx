@@ -4,7 +4,7 @@ import Mapper from "./components/Mapper";
 import Profile from "./components/Profile";
 import { AVATARS } from "./assets/avatars";
 
-const NUM_PROFILES = 9;
+const NUM_PROFILES = 24;
 
 function shuffle(array: any[]): any[] {
     let currentIndex = array.length;

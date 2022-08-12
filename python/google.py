@@ -7,7 +7,6 @@ from typing import *
 
 import requests
 from puts import get_logger
-
 from utils import decode_polyline
 
 LOG = get_logger()

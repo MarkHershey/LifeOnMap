@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import *
 
 import osmnx as ox
-
 from utils import utmToLatLng
 
 
