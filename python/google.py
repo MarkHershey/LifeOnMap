@@ -1,15 +1,28 @@
-import requests
-from typing import Tuple
 import json
-from utils import decode_polyline
 import os
 import random
+import time
 from pathlib import Path
+from typing import *
 
-API_KEY = ""
+import requests
+from puts import get_logger
+
+from utils import decode_polyline
+
+LOG = get_logger()
+
+# get API key from environment variable
+API_KEY = os.environ.get("GOOGLE_API_KEY") or ""
+
+if not API_KEY:
+    LOG.error("[ERROR] API Key not set")
+    exit(1)
 
 
-def query_route(origin: Tuple[float, float], destination: Tuple[float, float]) -> str:
+def query_route(
+    origin: Tuple[float, float], destination: Tuple[float, float]
+) -> Tuple[str, dict]:
     """
     Query Google Maps API for route between two points (in lat,lng representation).
 
@@ -19,6 +32,7 @@ def query_route(origin: Tuple[float, float], destination: Tuple[float, float]) -
 
     Returns:
         Encoded Polyline string
+        Metadata dict
     """
     ORIGIN = f"{origin[0]},{origin[1]}"
     DESTINATION = f"{destination[0]},{destination[1]}"
@@ -36,18 +50,32 @@ def query_route(origin: Tuple[float, float], destination: Tuple[float, float]) -
         response_json = json.loads(response_str)
         status = response_json.get("status")
         if status == "OK":
-            routes = response_json.get("routes")
+            routes: List[dict] = response_json.get("routes")
             if routes:
-                route = routes[0]
+                route: dict = routes[0]
                 overview_polyline = route.get("overview_polyline")
                 encoded_polyline_str = overview_polyline.get("points")
-                return encoded_polyline_str
+                # get metadata about this route
+                meta = {}
+                legs: List[dict] = route.get("legs")
+                if legs:
+                    leg: dict = legs[0]
+                else:
+                    leg = {}
+                meta["distance"] = leg.get("distance")
+                meta["duration"] = leg.get("duration")
+                meta["end_address"] = leg.get("end_address")
+                meta["end_location"] = leg.get("end_location")
+                meta["start_address"] = leg.get("start_address")
+                meta["start_location"] = leg.get("start_location")
+
+                return encoded_polyline_str, meta
             else:
-                print("[ERROR] No routes found")
+                LOG.error("[ERROR] No routes found")
         else:
-            print(f"[ERROR] Response Payload Status: {status}")
+            LOG.error(f"[ERROR] Response Payload Status: {status}")
     else:
-        print(f"[ERROR] HTTP Status: {response.status_code}")
+        LOG.error(f"[ERROR] HTTP Status: {response.status_code}")
 
     return None
 
@@ -59,11 +87,15 @@ def main():
         if not filename.endswith(".json"):
             continue
 
+        if filename.startswith("routes_"):
+            continue
+
         if Path(export_path).exists():
-            print(f"[SKIP] {export_path} already exists")
+            LOG.info(f"[SKIP] {export_path} already exists")
             continue
 
         with open(f"./data/{filename}", "r") as f:
+            LOG.info(f"[PROCESSING] {filename}")
             data: dict = json.load(f)
 
         routes = []
@@ -71,6 +103,7 @@ def main():
             sample_routes = {
                 "coordinates": [],
                 "ploylines": [],
+                "metadata": [],
             }
             points = data.get(sample_number)
             random.shuffle(points)
@@ -80,18 +113,20 @@ def main():
                 origin = (origin["lat"], origin["lng"])
                 destination = (destination["lat"], destination["lng"])
 
-                encoded_polyline_str = query_route(origin, destination)
+                encoded_polyline_str, meta = query_route(origin, destination)
                 if encoded_polyline_str:
                     coords = decode_polyline(encoded_polyline_str)
                     sample_routes["coordinates"].append(coords)
                     sample_routes["ploylines"].append(encoded_polyline_str)
+                    sample_routes["metadata"].append(meta)
 
             routes.append(sample_routes)
 
         with open(export_path, "w") as f:
             json.dump(routes, f)
-            print(f"Saved routes to {export_path}")
-            return
+            LOG.info(f"Saved routes to {export_path}")
+            # sleep for a while to avoid Google API rate limit
+            time.sleep(60)
 
     return
 
