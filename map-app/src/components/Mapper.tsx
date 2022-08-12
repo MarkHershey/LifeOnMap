@@ -31,8 +31,8 @@ const Mapper = () => {
                 className="w-full h-full"
                 center={multiPolyline0[0][0]}
                 zoom={13}
-                scrollWheelZoom={false}
-                zoomControl={true}
+                scrollWheelZoom={true}
+                zoomControl={false}
                 dragging={true}
                 inertia={true}
             >
