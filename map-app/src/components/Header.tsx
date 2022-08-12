@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/logo.png";
 
 const Header = () => {
     return (
@@ -6,7 +7,7 @@ const Header = () => {
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="/LifeOnMap" className="flex items-center">
                     <img
-                        src="https://flowbite.com/docs/images/logo.svg"
+                        src={logo}
                         className="mr-3 h-6 sm:h-10"
                         alt="Logo"
                     ></img>
